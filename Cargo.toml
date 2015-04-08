@@ -5,7 +5,4 @@ authors = ["Hanjae Lee <hanjaelee@cosmos.io>"]
 
 [dependencies]
 iron = "0.1.15"
-router = "0.0.9"
 
-[dependencies.route-recognizer]
-git = "https://github.com/conduit-rust/route-recognizer.rs.git"
