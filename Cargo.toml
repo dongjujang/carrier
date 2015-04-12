@@ -1,8 +1,6 @@
 [package]
 name = "carrier"
 version = "0.0.1"
-authors = ["Hanjae Lee <hanjaelee@cosmos.io>"]
+authors = ["Graham Lee <ghmlee@cosmos.io>", "Hanjae Lee <hanjaelee@cosmos.io>"]
 
 [dependencies]
-iron = "0.1.15"
-

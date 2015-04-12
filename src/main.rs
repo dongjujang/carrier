@@ -1,13 +1,21 @@
-extern crate iron;
+use std::net::{TcpListener, TcpStream};
+use std::thread;
 
-use iron::prelude::*;
-use iron::status;
+fn handle_client(stream: TcpStream) {
+    println!("handle_client");
+}
 
 fn main() {
-    fn hello_world(_: &mut Request) -> IronResult<Response> {
-        Ok(Response::with((status::Ok, "Hello World!")))
+    let listener = TcpListener::bind("0.0.0.0:8888").unwrap();
+    for stream in listener.incoming() {
+        match stream {
+            Ok(stream) => {
+                thread::spawn(move|| {
+                    handle_client(stream)
+                });
+            }
+            Err(e) => { println!("{}", e); }
+        }
     }
-
-    Iron::new(hello_world).http("localhost:3000").unwrap();
-    println!("On 3000");
+    drop(listener);
 }
