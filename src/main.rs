@@ -1,4 +1,4 @@
-use std::io::Read;
+use std::io::{Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::thread;
 
@@ -32,6 +32,9 @@ fn handle_client(s: TcpStream) {
     }
 
     println!("{}", raw);
+
+    let response = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\nConnection: close\r\n\r\n";
+    let _ = stream.write(response.as_bytes());
 }
 
 fn main() {
