@@ -1,3 +1,6 @@
+//! Carrier
+#![doc(html_root_url="https://cosmos-io.github.io/carrier/doc")]
+
 use std::io::{Read, Write};
 use std::net::{TcpListener, TcpStream};
 use std::thread;
